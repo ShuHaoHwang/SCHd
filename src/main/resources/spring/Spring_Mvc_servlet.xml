@@ -13,7 +13,7 @@
     <context:annotation-config/>
 
     <!-- 哪些包需要扫描 排除@Service组件-->
-    <context:component-scan base-package="web.controller" >
+    <context:component-scan base-package="controller" >
     <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 

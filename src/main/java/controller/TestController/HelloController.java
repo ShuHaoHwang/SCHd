@@ -1,4 +1,4 @@
-package web.controller.TestController;
+package controller.TestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;

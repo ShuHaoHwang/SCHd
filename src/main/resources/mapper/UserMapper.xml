@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="web.utils.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="web.model.User" >
+<mapper namespace="dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="model.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="USERNAME" property="username" jdbcType="VARCHAR" />
     <result column="NICKNAME" property="nickname" jdbcType="VARCHAR" />
@@ -11,8 +11,9 @@
     <result column="AVATAR" property="avatar" jdbcType="VARCHAR" />
     <result column="SEX" property="sex" jdbcType="VARCHAR" />
     <result column="SIGN" property="sign" jdbcType="VARCHAR" />
-    <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="CreateDate" property="createdate" jdbcType="TIME" />
     <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="UUID" property="uuid" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,9 +74,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, USERNAME, NICKNAME, PASSWORD, SALT, EMAIL, AVATAR, SEX, SIGN, CreateDate, STATUS
+    id, USERNAME, NICKNAME, PASSWORD, SALT, EMAIL, AVATAR, SEX, SIGN, CreateDate, STATUS, 
+    UUID
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="web.model.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="model.UserExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,23 +101,25 @@
     delete from user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="web.model.UserExample" >
+  <delete id="deleteByExample" parameterType="model.UserExample" >
     delete from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="web.model.User" >
+  <insert id="insert" parameterType="model.User" >
     insert into user (id, USERNAME, NICKNAME, 
       PASSWORD, SALT, EMAIL, 
       AVATAR, SEX, SIGN, 
-      CreateDate, STATUS)
+      CreateDate, STATUS, UUID
+      )
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{avatar,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{sign,jdbcType=VARCHAR}, 
-      #{createdate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+      #{createdate,jdbcType=TIME}, #{status,jdbcType=INTEGER}, #{uuid,jdbcType=BIGINT}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="web.model.User" >
+  <insert id="insertSelective" parameterType="model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -151,6 +155,9 @@
       <if test="status != null" >
         STATUS,
       </if>
+      <if test="uuid != null" >
+        UUID,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -181,14 +188,17 @@
         #{sign,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null" >
-        #{createdate,jdbcType=TIMESTAMP},
+        #{createdate,jdbcType=TIME},
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
       </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=BIGINT},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="web.model.UserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="model.UserExample" resultType="java.lang.Integer" >
     select count(*) from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -225,10 +235,13 @@
         SIGN = #{record.sign,jdbcType=VARCHAR},
       </if>
       <if test="record.createdate != null" >
-        CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
+        CreateDate = #{record.createdate,jdbcType=TIME},
       </if>
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.uuid != null" >
+        UUID = #{record.uuid,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -246,13 +259,14 @@
       AVATAR = #{record.avatar,jdbcType=VARCHAR},
       SEX = #{record.sex,jdbcType=VARCHAR},
       SIGN = #{record.sign,jdbcType=VARCHAR},
-      CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
-      STATUS = #{record.status,jdbcType=INTEGER}
+      CreateDate = #{record.createdate,jdbcType=TIME},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      UUID = #{record.uuid,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="web.model.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="model.User" >
     update user
     <set >
       <if test="username != null" >
@@ -280,15 +294,18 @@
         SIGN = #{sign,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null" >
-        CreateDate = #{createdate,jdbcType=TIMESTAMP},
+        CreateDate = #{createdate,jdbcType=TIME},
       </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=INTEGER},
       </if>
+      <if test="uuid != null" >
+        UUID = #{uuid,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="web.model.User" >
+  <update id="updateByPrimaryKey" parameterType="model.User" >
     update user
     set USERNAME = #{username,jdbcType=VARCHAR},
       NICKNAME = #{nickname,jdbcType=VARCHAR},
@@ -298,8 +315,9 @@
       AVATAR = #{avatar,jdbcType=VARCHAR},
       SEX = #{sex,jdbcType=VARCHAR},
       SIGN = #{sign,jdbcType=VARCHAR},
-      CreateDate = #{createdate,jdbcType=TIMESTAMP},
-      STATUS = #{status,jdbcType=INTEGER}
+      CreateDate = #{createdate,jdbcType=TIME},
+      STATUS = #{status,jdbcType=INTEGER},
+      UUID = #{uuid,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

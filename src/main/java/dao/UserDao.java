@@ -1,10 +1,10 @@
-package web.utils.dao;
+package dao;
 
+import model.User;
+import model.UserExample;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import web.model.User;
-import web.model.UserExample;
 
 import java.util.List;
 

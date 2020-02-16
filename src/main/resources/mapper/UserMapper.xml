@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="web.utils.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="web.entity.User" >
+  <resultMap id="BaseResultMap" type="web.model.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="USERNAME" property="username" jdbcType="VARCHAR" />
     <result column="NICKNAME" property="nickname" jdbcType="VARCHAR" />
@@ -75,7 +75,7 @@
   <sql id="Base_Column_List" >
     id, USERNAME, NICKNAME, PASSWORD, SALT, EMAIL, AVATAR, SEX, SIGN, CreateDate, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="web.entity.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="web.model.UserExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,13 +99,13 @@
     delete from user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="web.entity.UserExample" >
+  <delete id="deleteByExample" parameterType="web.model.UserExample" >
     delete from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="web.entity.User" >
+  <insert id="insert" parameterType="web.model.User" >
     insert into user (id, USERNAME, NICKNAME, 
       PASSWORD, SALT, EMAIL, 
       AVATAR, SEX, SIGN, 
@@ -115,7 +115,7 @@
       #{avatar,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{sign,jdbcType=VARCHAR}, 
       #{createdate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="web.entity.User" >
+  <insert id="insertSelective" parameterType="web.model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -188,7 +188,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="web.entity.UserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="web.model.UserExample" resultType="java.lang.Integer" >
     select count(*) from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -252,7 +252,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="web.entity.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="web.model.User" >
     update user
     <set >
       <if test="username != null" >
@@ -288,7 +288,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="web.entity.User" >
+  <update id="updateByPrimaryKey" parameterType="web.model.User" >
     update user
     set USERNAME = #{username,jdbcType=VARCHAR},
       NICKNAME = #{nickname,jdbcType=VARCHAR},

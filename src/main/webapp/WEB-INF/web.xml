@@ -5,6 +5,7 @@
 <web-app>
 
   <display-name>Archetype Created Web Application</display-name>
+
   <!--spring监听器-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -14,6 +15,7 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
+  <!--SpringMVC DispatcherServlet分发器-->
   <servlet>
     <servlet-name>DispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

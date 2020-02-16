@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import web.entity.User;
-import web.entity.UserExample;
+import web.model.User;
+import web.model.UserExample;
 
 @Mapper
 public interface UserMapper {

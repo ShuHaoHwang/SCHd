@@ -3,8 +3,8 @@ package web.utils.dao;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import web.entity.User;
-import web.entity.UserExample;
+import web.model.User;
+import web.model.UserExample;
 
 import java.util.List;
 

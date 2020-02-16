@@ -25,7 +25,7 @@
     </context:component-scan>
 
     <!--扫描Resources中的相关properties文件-->
-    <context:property-placeholder location="classpath:confg/*.properties" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:config/*.properties" ignore-unresolvable="true"/>
 
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
@@ -81,20 +81,5 @@
             <ref bean="sqlSessionFactory" />
         </constructor-arg>
     </bean>
-    <!-- freemarker的配置 -->
-    <!--<bean id="freemarkerConfigurer"-->
-          <!--class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
-        <!--<property name="templateLoaderPath" value="classpath:/templates" />-->
-        <!--<property name="defaultEncoding" value="UTF-8" />-->
-        <!--<property name="freemarkerSettings">-->
-            <!--<props>-->
-                <!--<prop key="template_update_delay">10</prop>-->
-                <!--<prop key="locale">zh_CN</prop>-->
-                <!--<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>-->
-                <!--<prop key="date_format">yyyy-MM-dd</prop>-->
-                <!--<prop key="number_format">#.##</prop>-->
-            <!--</props>-->
-        <!--</property>-->
-    <!--</bean>-->
 
 </beans>

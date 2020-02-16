@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <context:annotation-config/>
+
+    <!-- 哪些包需要扫描 -->
+    <context:component-scan base-package="web.controller" >
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+    <!--配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--json解析器，用于将对象转换为JSON -->
+    <bean id="stringConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/plain;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+        <!--<property name="messageConverters">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<mvc:annotation-driven conversion-service="conversionService" >-->
+    <!--<mvc:message-converters register-defaults="true">-->
+    <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+    <!--<constructor-arg value="UTF-8"></constructor-arg>-->
+    <!--</bean>-->
+    <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
+
+     <!--静态资源映射，可以配置多行 -->
+    <mvc:resources mapping="/res/**" location="classpath:/static/" />
+    <mvc:resources mapping="/js/**" location="classpath:/static/js/" />
+    <mvc:resources mapping="/css/**" location="classpath:/static/css/" />
+    <mvc:resources mapping="/images/**" location="classpath:/static/images/" />
+
+
+    <mvc:annotation-driven />
+    <!-- 启用默认的servlet映射，webapp可以直接访问 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 配置freeMarker视图解析器 -->
+    <!--<bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>-->
+        <!--<property name="contentType" value="text/html; charset=UTF-8"/>-->
+        <!--<property name="exposeRequestAttributes" value="true" />-->
+        <!--<property name="exposeSessionAttributes" value="true" />-->
+        <!--<property name="exposeSpringMacroHelpers" value="true" />-->
+        <!--<property name="requestContextAttribute" value="request"/>-->
+        <!--<property name="cache" value="true" />-->
+        <!--<property name="suffix" value=".ftl" />-->
+        <!--<property name="order" value="0"/>-->
+    <!--</bean>-->
+
+    <!-- 配置MultipartResolver 用于文件上传 使用spring的CommosMultipartResolver -->
+    <bean id="multipartResolver"
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+    p:defaultEncoding="UTF-8" p:maxUploadSize="5242880">
+    </bean>
+
+</beans>
+

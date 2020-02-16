@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd"
+>
+    <!--启用注解-->
+    <context:annotation-config/>
+
+    <!--启动组件扫描，排除@controller组件-->
+    <context:component-scan base-package="web">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController" />
+    </context:component-scan>
+
+    <!--扫描Resources中的相关properties文件-->
+    <context:property-placeholder location="classpath:confg/*.properties" ignore-unresolvable="true"/>
+
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          destroy-method="close">
+        <!-- 数据库基本信息配置 -->
+        <property name="url" value="${druid.jdbc.url}" />
+        <property name="username" value="${druid.jdbc.username}" />
+        <property name="password" value="${druid.jdbc.password}" />
+        <property name="driverClassName" value="${druid.jdbc.driver}" />
+        <property name="filters" value="${druid.filters}" />
+        <!-- 最大并发连接数 -->
+        <property name="maxActive" value="${druid.maxActive}" />
+        <!-- 初始化连接数量 -->
+        <property name="initialSize" value="${druid.initialSize}" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${druid.maxWait}" />
+        <!-- 最小空闲连接数 -->
+        <property name="minIdle" value="${druid.minIdle}" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${druid.validationQuery}" />
+        <property name="testWhileIdle" value="${druid.testWhileIdle}" />
+        <property name="testOnBorrow" value="${druid.testOnBorrow}" />
+        <property name="testOnReturn" value="${druid.testOnReturn}" />
+        <property name="maxOpenPreparedStatements" value="${druid.maxOpenPreparedStatements}" />
+        <!-- 打开removeAbandoned功能 -->
+        <property name="removeAbandoned" value="${druid.removeAbandoned}" />
+        <!-- 1800秒，也就是30分钟 -->
+        <property name="removeAbandonedTimeout" value="${druid.removeAbandonedTimeout}" />
+        <!-- 关闭abanded连接时输出错误日志 -->
+        <property name="logAbandoned" value="${druid.logAbandoned}" />
+    </bean>
+
+    <!--创建sqlSessionFactory，给了数据源和配置路径-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
+    </bean>
+
+    <!--配置bean扫描-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="utils.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+
+    </bean>
+
+    <!--其实这里类的实例就是mybatis中SQLSession -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0">
+            <ref bean="sqlSessionFactory" />
+        </constructor-arg>
+    </bean>
+    <!-- freemarker的配置 -->
+    <!--<bean id="freemarkerConfigurer"-->
+          <!--class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
+        <!--<property name="templateLoaderPath" value="classpath:/templates" />-->
+        <!--<property name="defaultEncoding" value="UTF-8" />-->
+        <!--<property name="freemarkerSettings">-->
+            <!--<props>-->
+                <!--<prop key="template_update_delay">10</prop>-->
+                <!--<prop key="locale">zh_CN</prop>-->
+                <!--<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>-->
+                <!--<prop key="date_format">yyyy-MM-dd</prop>-->
+                <!--<prop key="number_format">#.##</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+</beans>

@@ -4,7 +4,9 @@ import java.util.List;
 import model.User;
 import model.UserExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserMapper {
     int countByExample(UserExample example);
 

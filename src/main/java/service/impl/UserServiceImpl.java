@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
 
     private UserMapper userMapper;
 
+
     @Autowired
     private void setUserMapper(SqlSessionTemplate sqlSession){
         userMapper = sqlSession.getMapper(UserMapper.class);
@@ -34,6 +35,7 @@ public class UserServiceImpl implements UserService {
 
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUsernameEqualTo(formUser.getUsername());
+
         if(!userMapper.selectByExample(userExample).isEmpty()){
             rs.put("msg","用户名已经存在");
             rs.put("code",200);

@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>用户登录</title>
+    <title>用户注册</title>
 
 
     <!-- 导入CSS的全局样式 -->
@@ -12,6 +12,9 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/register.css" />
     <script src="../js/jQuery.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+
     <script src="../js/bootstrap.js"></script>
 
 
@@ -20,7 +23,6 @@
 </head>
 
 <body>
-
 
 <div class="navbar navbar-default">
     <div class="navbar-brand">SCHd</div>
@@ -37,18 +39,18 @@
     <div style="text-align: right;">
         <a href="/Pages/login.html" class="signup-link gapps"><span>已有账号, 登录</span></a>
     </div>
-    <form action=" " method="post">
+    <form id="registerForm" action="register" method="post">
         <div id="message"></div>
         <label for="id">用户名:</label>
         <div id="id">
-            <input maxlength="18" class="form-control border" name="username"
+            <input id="username" maxlength="18" class="form-control border" name="username"
                    value="" placeholder="用户名" type="text" data-required
                    data-conditional="username" data-description="username"
                    data-describedby="message">
         </div>
         <label for="id_email">邮箱:</label>
         <div id="id_email">
-            <input maxlength="64" class="form-control border" name="email"
+            <input id="email" maxlength="64" class="form-control border" name="email"
                    value="" placeholder="邮箱地址" type="text" data-required
                    data-conditional="email" data-description="email"
                    data-describedby="message">
@@ -120,6 +122,18 @@
                 $(b).parent().removeClass('has-error').addClass('has-success');
                 $(b).popover('destroy');
             },submitHandler:function(form){                     //验证通过执行这里
+
+
+                $.ajax({
+                    url:"../user/register",
+                    // contentType:"application/json;charset=UTF-8",
+                    // data:$("#registerForm").serialize(),
+                    data:{"username":$("#username").val(),"email":$("#email").val(),"password":$("#password").val()},
+                    type:"post",
+                    success:function(data){
+                        alert("请求成功");
+                    }
+                });
 
             }
 

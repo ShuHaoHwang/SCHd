@@ -1,9 +1,12 @@
 package controller;
 
 import model.User;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.UserService;
 
@@ -14,15 +17,26 @@ import service.UserService;
  */
 
 @Controller
-    public class PublicController {
+@RequestMapping("/user")
+public class PublicController {
 
     @Autowired
     private UserService service;
 
+    @RequestMapping("/register")
     @ResponseBody
-    @RequestMapping("/user/register")
-    public Object User_Register(User formUser){
-        System.out.println("一个用户已经开始注册\n" + formUser);      //用来前期数据接收测试【测试完毕可以删除】
-        return service.register(formUser);
+    public Object User_Register(String username, String email, String password) {
+        System.out.println("执行注册");
+        System.out.println("前端传来的数据：" + username + " " + email + " " + password);
+
+        User user = new User();
+
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
+
+
+        return service.register(user);
     }
+
 }

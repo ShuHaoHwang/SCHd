@@ -46,8 +46,8 @@
 
      <!--静态资源映射，可以配置多行，在页面编辑的时候可以通过mapping映射进行获取 -->
     <!--<mvc:resources mapping="/res/**" location="classpath:/static/" />-->
-    <!--<mvc:resources mapping="/js/**" location="classpath:/static/js/" />-->
-    <!--<mvc:resources mapping="/css/**" location="classpath:/static/css/" />-->
+    <mvc:resources mapping="/js/**" location="classpath:static/js/" />
+    <mvc:resources mapping="/css/**" location="classpath:static/css/" />
     <!--<mvc:resources mapping="/images/**" location="classpath:/static/images/" />-->
 
 

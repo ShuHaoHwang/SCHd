@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>用户登录</title>
+
+
+    <!-- 导入CSS的全局样式 -->
+
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/register.css" />
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+
+
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/messages_zh.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="navbar navbar-default">
+    <div class="navbar-brand">SCHd</div>
+    <p class="navbar-text">测试测试~~~~~~</p>
+    <ul class="nav navbar-nav">
+        <li><a href="">首页</a></li>
+        <li><a href="">关于我们</a></li>
+    </ul>
+</div>
+
+
+<div class="container" style="width: 330px; margin-top: 130px">
+    <h1 style="text-align: center;">用户注册</h1>
+    <div style="text-align: right;">
+        <a href="/Pages/login.html" class="signup-link gapps"><span>已有账号, 登录</span></a>
+    </div>
+    <form action=" " method="post">
+        <div id="message"></div>
+        <label for="id">用户名:</label>
+        <div id="id">
+            <input maxlength="18" class="form-control border" name="username"
+                   value="" placeholder="用户名" type="text" data-required
+                   data-conditional="username" data-description="username"
+                   data-describedby="message">
+        </div>
+        <label for="id_email">邮箱:</label>
+        <div id="id_email">
+            <input maxlength="64" class="form-control border" name="email"
+                   value="" placeholder="邮箱地址" type="text" data-required
+                   data-conditional="email" data-description="email"
+                   data-describedby="message">
+        </div>
+        <label for="id_password">密码:</label>
+        <div id="id_password">
+            <input id="password" class="form-control border" maxlength="18"
+                   name="password" placeholder="密码" type="password" data-required>
+        </div>
+        <label for="id_password2">确认密码:</label>
+        <div id="id_password2">
+            <input maxlength="18" class="form-control border" name="password2"
+                   placeholder="请再输入一次密码" type="password" data-required
+                   data-conditional="confirm" data-describedby="message"
+                   data-description="confirm">
+        </div>
+        <hr/>
+        <div style="text-align: center;">
+            <input type="submit" class="btn btn-success border" value="注 册">
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function() {              // 在键盘按下并释放及提交后验证提交表单
+        $("form").validate({
+            debug:true,         //只验证，不提交
+            rules : {
+                username : {
+                    required : true,
+                    minlength : 3
+                },email : {
+                    required : true,
+                    email : true
+                },
+                password : {
+                    required : true,
+                    minlength : 5
+                },
+                password2 : {
+                    required : true,
+                    minlength : 5,
+                    equalTo : "#password"
+                }
+            },
+            messages : {
+                username : {
+                    required : "请输入用户名",
+                    minlength : "用户名长度不能小于3"
+                },
+                email : "请输入正确的邮箱",
+                password : {
+                    required : "请输入登录密码",
+                    minlength : "密码长度不能小于 5"
+                },
+                password2 : {
+                    required : "请重复输入密码",
+                    minlength : "密码长度不能小于 5 个字母",
+                    equalTo : "两次密码输入不一致"
+                }//这边是检测+弹窗提示操作，稍有些不灵敏。望老白能看一看 能修就修一下
+            },errorPlacement: function(error, element) {        //element是jquery对象
+                element.popover('destroy');                     //清除上次的弹窗
+                element.popover({
+                    content:error[0].innerHTML                  //弹窗显示错误信息
+                });
+                element.click();                                //点击后检查
+                element.closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
+            },success:function(a, b) {
+                $(b).parent().removeClass('has-error').addClass('has-success');
+                $(b).popover('destroy');
+            },submitHandler:function(form){                     //验证通过执行这里
+
+
+            }
+
+        });
+    });
+</script>
+
+<!-- jQuery导入,为兼容低版本浏览器我们选择1.x.x 2.x版本 -->
+<!-- <script src="/js/jquery-2.1.0.min"></script> -->
+<!-- 导入bootstrap的js文件 -->
+<!-- <script src="/js/bootstrap.min.js"></script> -->
+
+</body>
+</html>

@@ -5,8 +5,11 @@ import model.UserExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
+
+    public Map<String, Object> register(User formUser);
 
     int countByExample(UserExample example);
 

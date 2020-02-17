@@ -1,14 +1,10 @@
 package model;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-
-@Component
 public class UserExample {
     protected String orderByClause;
 
@@ -886,52 +882,62 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUuidEqualTo(Long value) {
+        public Criteria andUuidEqualTo(String value) {
             addCriterion("UUID =", value, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidNotEqualTo(Long value) {
+        public Criteria andUuidNotEqualTo(String value) {
             addCriterion("UUID <>", value, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidGreaterThan(Long value) {
+        public Criteria andUuidGreaterThan(String value) {
             addCriterion("UUID >", value, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidGreaterThanOrEqualTo(Long value) {
+        public Criteria andUuidGreaterThanOrEqualTo(String value) {
             addCriterion("UUID >=", value, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidLessThan(Long value) {
+        public Criteria andUuidLessThan(String value) {
             addCriterion("UUID <", value, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidLessThanOrEqualTo(Long value) {
+        public Criteria andUuidLessThanOrEqualTo(String value) {
             addCriterion("UUID <=", value, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidIn(List<Long> values) {
+        public Criteria andUuidLike(String value) {
+            addCriterion("UUID like", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidNotLike(String value) {
+            addCriterion("UUID not like", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidIn(List<String> values) {
             addCriterion("UUID in", values, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidNotIn(List<Long> values) {
+        public Criteria andUuidNotIn(List<String> values) {
             addCriterion("UUID not in", values, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidBetween(Long value1, Long value2) {
+        public Criteria andUuidBetween(String value1, String value2) {
             addCriterion("UUID between", value1, value2, "uuid");
             return (Criteria) this;
         }
 
-        public Criteria andUuidNotBetween(Long value1, Long value2) {
+        public Criteria andUuidNotBetween(String value1, String value2) {
             addCriterion("UUID not between", value1, value2, "uuid");
             return (Criteria) this;
         }

@@ -19,7 +19,7 @@
     <context:annotation-config/>
 
     <!--启动组件扫描，排除@controller组件-->
-    <context:component-scan base-package="web">
+    <context:component-scan base-package="service,dao,model">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController" />
     </context:component-scan>

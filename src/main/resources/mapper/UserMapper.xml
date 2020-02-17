@@ -13,7 +13,7 @@
     <result column="SIGN" property="sign" jdbcType="VARCHAR" />
     <result column="CreateDate" property="createdate" jdbcType="TIME" />
     <result column="STATUS" property="status" jdbcType="INTEGER" />
-    <result column="UUID" property="uuid" jdbcType="BIGINT" />
+    <result column="UUID" property="uuid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -116,7 +116,7 @@
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{avatar,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{sign,jdbcType=VARCHAR}, 
-      #{createdate,jdbcType=TIME}, #{status,jdbcType=INTEGER}, #{uuid,jdbcType=BIGINT}
+      #{createdate,jdbcType=TIME}, #{status,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="model.User" >
@@ -194,7 +194,7 @@
         #{status,jdbcType=INTEGER},
       </if>
       <if test="uuid != null" >
-        #{uuid,jdbcType=BIGINT},
+        #{uuid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -241,7 +241,7 @@
         STATUS = #{record.status,jdbcType=INTEGER},
       </if>
       <if test="record.uuid != null" >
-        UUID = #{record.uuid,jdbcType=BIGINT},
+        UUID = #{record.uuid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -261,7 +261,7 @@
       SIGN = #{record.sign,jdbcType=VARCHAR},
       CreateDate = #{record.createdate,jdbcType=TIME},
       STATUS = #{record.status,jdbcType=INTEGER},
-      UUID = #{record.uuid,jdbcType=BIGINT}
+      UUID = #{record.uuid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -300,7 +300,7 @@
         STATUS = #{status,jdbcType=INTEGER},
       </if>
       <if test="uuid != null" >
-        UUID = #{uuid,jdbcType=BIGINT},
+        UUID = #{uuid,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -317,7 +317,7 @@
       SIGN = #{sign,jdbcType=VARCHAR},
       CreateDate = #{createdate,jdbcType=TIME},
       STATUS = #{status,jdbcType=INTEGER},
-      UUID = #{uuid,jdbcType=BIGINT}
+      UUID = #{uuid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

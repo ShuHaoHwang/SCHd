@@ -14,7 +14,7 @@ import java.util.List;
  * @date 2020/2/14
  */
 
-@Repository("UserDao")
+@Repository("userDao")
 public class UserDao{
     @Autowired
     UserExample userExample;

@@ -127,8 +127,8 @@
                 $.ajax({
                     url:"../user/register",
                     // contentType:"application/json;charset=UTF-8",
-                    // data:$("#registerForm").serialize(),
-                    data:{"username":$("#username").val(),"email":$("#email").val(),"password":$("#password").val()},
+                    data:$("#registerForm").serialize(),
+                    //data:{"username":$("#username").val(),"email":$("#email").val(),"password":$("#password").val()},
                     type:"post",
                     success:function(data){
                         alert("请求成功");

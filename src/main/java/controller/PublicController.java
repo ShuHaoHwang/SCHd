@@ -22,10 +22,11 @@ public class PublicController {
 
     @ResponseBody
     @RequestMapping("/checkUser")
-    public Object User_Register(String str) {
+    public Object User_Register(String username, String email) {
         System.out.println("执行注册");
-        System.out.println(str);
-        return service.checkUser(str);
+        System.out.println(username);
+        System.out.println(email);
+        return service.checkUser(username);
     }
 
 

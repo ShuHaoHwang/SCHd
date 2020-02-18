@@ -94,7 +94,7 @@
            console.log($("#username,#email").val());
             $.ajax({
                 url:"../user/checkUser",
-                data:$("#username").val(),
+                data:{"username":$("#username").val()},
                 type:"post",
                 success:function(data){
                     if (data.code == 200) {
@@ -107,7 +107,26 @@
                     }
                 }
             });
-        })
+        });
+
+        $("#email").blur(function () {
+            console.log($("#username,#email").val());
+            $.ajax({
+                url:"../user/checkUser",
+                data:{"email":$("#email").val()},
+                type:"post",
+                success:function(data){
+                    if (data.code == 200) {
+                        layer.msg(data.msg);
+                        $(username).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
+                    }
+                    if(data.code == 300){
+                        layer.msg(data.msg);
+                        $(email).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
+                    }
+                }
+            });
+        });
 
         $("form").validate({
             debug:false,         //只验证，不提交

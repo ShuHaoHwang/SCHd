@@ -24,7 +24,7 @@ public class PublicController {
     @ResponseBody
     @RequestMapping("/register")
     public Object User_Register(User user) {
-//        System.out.println("执行注册");
+        System.out.println("执行注册");
 //        System.out.println("前端传来的数据：" + username + " " + email + " " + password);
 //
 //        User user = new User();

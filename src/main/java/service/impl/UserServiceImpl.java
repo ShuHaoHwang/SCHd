@@ -55,23 +55,18 @@ public class UserServiceImpl implements UserService {
         if(str==null)return null;
         Map<String,Object> rs = new HashMap<>();        //这个地方我后期可以进行封装。信息+结果集一并搞定
 
+
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUsernameEqualTo(str);
 
-        if(!userMapper.selectByExample(userExample).isEmpty()){
+        if(!userMapper.selectByExample(userExample).isEmpty()&&str!=null){
             rs.put("msg","用户名已经存在");
             rs.put("code",200);
             return rs;
         }
-        userExample.clear();
-        userExample.createCriteria().andEmailEqualTo(str);
-        if(!userMapper.selectByExample(userExample).isEmpty()){
-            rs.put("msg","邮箱已经被占用!");
-            rs.put("code",300);
-            return rs;
-        }
 
-        rs.put("msg","用户可以使用");
+
+        rs.put("msg","用户名可以使用");
         rs.put("code",100);
         return rs;
     }

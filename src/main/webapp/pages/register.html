@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../css/register.css" />
     <script src="../js/jQuery.js"></script>
 
-    <script src="../js/jquery.min.js"></script>
 
     <script src="../js/bootstrap.js"></script>
 
@@ -38,7 +37,7 @@
 <div class="container" style="width: 330px; margin-top: 130px">
     <h1 style="text-align: center;">用户注册</h1>
     <div style="text-align: right;">
-        <a href="/Pages/login.html" class="signup-link gapps"><span>已有账号, 登录</span></a>
+        <a href="/pages/login.html" class="signup-link gapps"><span>已有账号, 登录</span></a>
     </div>
     <form id="registerForm" action="register" method="post">
         <div id="message"></div>
@@ -47,13 +46,6 @@
             <input id="username" maxlength="18" class="form-control border" name="username"
                    value="" placeholder="用户名" type="text" data-required
                    data-conditional="username" data-description="username"
-                   data-describedby="message">
-        </div>
-        <label for="id_email">邮箱:</label>
-        <div id="id_email">
-            <input id="email" maxlength="64" class="form-control border" name="email"
-                   value="" placeholder="邮箱地址" type="text" data-required
-                   data-conditional="email" data-description="email"
                    data-describedby="message">
         </div>
         <label for="id_password">密码:</label>
@@ -83,15 +75,9 @@
 
     </form>
 </div>
-
 <script type="text/javascript">
-
-
-
     $(function() {              // 在键盘按下并释放及提交后验证提交表单
-
        $("#username").blur(function () {
-           console.log($("#username,#email").val());
             $.ajax({
                 url:"../user/checkUser",
                 data:{"username":$("#username").val()},
@@ -108,35 +94,12 @@
                 }
             });
         });
-
-        $("#email").blur(function () {
-            console.log($("#username,#email").val());
-            $.ajax({
-                url:"../user/checkUser",
-                data:{"email":$("#email").val()},
-                type:"post",
-                success:function(data){
-                    if (data.code == 200) {
-                        layer.msg(data.msg);
-                        $(username).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
-                    }
-                    if(data.code == 300){
-                        layer.msg(data.msg);
-                        $(email).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
-                    }
-                }
-            });
-        });
-
         $("form").validate({
             debug:false,         //只验证，不提交
             rules : {
                 username : {
                     required : true,
                     minlength : 3
-                },email : {
-                    required : true,
-                    email : true
                 },
                 password : {
                     required : true,
@@ -153,7 +116,6 @@
                     required : "请输入用户名",
                     minlength : "用户名长度不能小于3"
                 },
-                email : "请输入正确的邮箱",
                 password : {
                     required : "请输入登录密码",
                     minlength : "密码长度不能小于 5"
@@ -191,7 +153,7 @@
                         }if(data.code==100){
                             layer.msg('恭喜，注册成功，2秒后为您跳转到登录页面!', {icon: 6});
                             setTimeout(function(){
-                                window.location.href='/login.html';
+                                window.location.href='/pages/login.html';
                             },2000);
                         }
 
@@ -200,9 +162,6 @@
             }
         });
     });
-
-
-
 </script>
 
 <!-- jQuery导入,为兼容低版本浏览器我们选择1.x.x 2.x版本 -->

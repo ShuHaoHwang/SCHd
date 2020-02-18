@@ -90,24 +90,27 @@
 
     $(function() {              // 在键盘按下并释放及提交后验证提交表单
 
-        $("#username").blur(function () {
+       $("#username").blur(function () {
+           console.log($("#username,#email").val());
             $.ajax({
-                url:"../user/register",
-                data:{"username":$("#username").val()},
+                url:"../user/checkUser",
+                data:$("#username").val(),
                 type:"post",
                 success:function(data){
                     if (data.code == 200) {
                         layer.msg(data.msg);
-                    }else
-                    {
-                        layer.msg("用户名可以使用");
+                        $(username).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
+                    }
+                    if(data.code == 300){
+                        layer.msg(data.msg);
+                        $(email).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
                     }
                 }
             });
         })
 
         $("form").validate({
-            debug:true,         //只验证，不提交
+            debug:false,         //只验证，不提交
             rules : {
                 username : {
                     required : true,
@@ -152,20 +155,27 @@
                 $(b).parent().removeClass('has-error').addClass('has-success');
                 $(b).popover('destroy');
             },submitHandler:function(form){                     //验证通过执行这里
-
+                var la = layer.msg('正在处理你的注册信息哦！！', {
+                    icon: 20
+                    ,shade: 0.5,
+                    time:0,
+                });
 
                 $.ajax({
-                    url:"../user/register",
-                    // contentType:"application/json;charset=UTF-8",
-                    data:$("#registerForm").serialize(),
-                    //data:{"username":$("#username").val(),"email":$("#email").val(),"password":$("#password").val()},
                     type:"post",
+                    url:"../user/register",
+                    data:$("#registerForm").serialize(),
                     success:function(data){
-                        if (data.code == 100) {
-                            alert("注册成功")
-                        }else{
-                            layer.msg(data.msg);
+                        if(data.code==200){
+                            layer.msg("用户名已经存在");
+
+                        }if(data.code==100){
+                            layer.msg('恭喜，注册成功，2秒后为您跳转到登录页面!', {icon: 6});
+                            setTimeout(function(){
+                                window.location.href='/login.html';
+                            },2000);
                         }
+
                     }
                 });
             }

@@ -20,21 +20,23 @@ public class PublicController {
     @Autowired
     private UserService service;
 
+    @ResponseBody
+    @RequestMapping("/checkUser")
+    public Object User_Register(String str) {
+        System.out.println("执行注册");
+        System.out.println(str);
+        return service.checkUser(str);
+    }
+
 
     @ResponseBody
     @RequestMapping("/register")
     public Object User_Register(User user) {
         System.out.println("执行注册");
-//        System.out.println("前端传来的数据：" + username + " " + email + " " + password);
-//
-//        User user = new User();
-//
-//        user.setUsername(username);
-//        user.setEmail(email);
-//        user.setPassword(password);
         System.out.println(user);
 
         return service.register(user);
     }
+
 
 }

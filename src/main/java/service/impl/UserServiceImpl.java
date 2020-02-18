@@ -45,7 +45,33 @@ public class UserServiceImpl implements UserService {
         formUser.setStatus(0);                         //初始状态值设置为0 意为为激活 等待邮箱进行激活验证
         formUser.setUuid(UUID.randomUUID().toString());//设置UUID
         userMapper.insert(formUser);
-        rs.put("msg","已经重新注册");
+        rs.put("msg","已经完成注册");
+        rs.put("code",100);
+        return rs;
+    }
+
+    @Override
+    public Map<String, Object> checkUser(String str) {
+        if(str==null)return null;
+        Map<String,Object> rs = new HashMap<>();        //这个地方我后期可以进行封装。信息+结果集一并搞定
+
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUsernameEqualTo(str);
+
+        if(!userMapper.selectByExample(userExample).isEmpty()){
+            rs.put("msg","用户名已经存在");
+            rs.put("code",200);
+            return rs;
+        }
+        userExample.clear();
+        userExample.createCriteria().andEmailEqualTo(str);
+        if(!userMapper.selectByExample(userExample).isEmpty()){
+            rs.put("msg","邮箱已经被占用!");
+            rs.put("code",300);
+            return rs;
+        }
+
+        rs.put("msg","用户可以使用");
         rs.put("code",100);
         return rs;
     }
@@ -104,4 +130,6 @@ public class UserServiceImpl implements UserService {
     public int updateByPrimaryKey(User record) {
         return 0;
     }
+
+
 }

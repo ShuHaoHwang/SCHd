@@ -33,4 +33,5 @@ public interface UserService {
 
     int updateByPrimaryKey(User record);
 
+    public Object checkUser(String name);
 }

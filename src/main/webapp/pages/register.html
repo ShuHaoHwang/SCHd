@@ -20,6 +20,7 @@
 
     <script src="../js/jquery.validate.min.js"></script>
     <script src="../js/messages_zh.min.js"></script>
+    <script src="../js/layer/layer.js"></script>
 </head>
 
 <body>
@@ -71,11 +72,40 @@
         <div style="text-align: center;">
             <input type="submit" class="btn btn-success border" value="注 册">
         </div>
+        <br/>
+        <!--&lt;!&ndash; BootStrap 出错显示的信息框 &ndash;&gt;-->
+        <!--<div class="alert alert-warning alert-dismissible" role="alert">-->
+            <!--<button type="button" class="close" data-dismiss="alert">-->
+                <!--<span>&times;</span>-->
+            <!--</button>-->
+            <!--<strong id="errorMsg">登录校验信息回显框</strong>-->
+        <!--</div>-->
+
     </form>
 </div>
 
 <script type="text/javascript">
+
+
+
     $(function() {              // 在键盘按下并释放及提交后验证提交表单
+
+        $("#username").blur(function () {
+            $.ajax({
+                url:"../user/register",
+                data:{"username":$("#username").val()},
+                type:"post",
+                success:function(data){
+                    if (data.code == 200) {
+                        layer.msg(data.msg);
+                    }else
+                    {
+                        layer.msg("用户名可以使用");
+                    }
+                }
+            });
+        })
+
         $("form").validate({
             debug:true,         //只验证，不提交
             rules : {
@@ -131,14 +161,19 @@
                     //data:{"username":$("#username").val(),"email":$("#email").val(),"password":$("#password").val()},
                     type:"post",
                     success:function(data){
-                        alert("请求成功");
+                        if (data.code == 100) {
+                            alert("注册成功")
+                        }else{
+                            layer.msg(data.msg);
+                        }
                     }
                 });
-
             }
-
         });
     });
+
+
+
 </script>
 
 <!-- jQuery导入,为兼容低版本浏览器我们选择1.x.x 2.x版本 -->

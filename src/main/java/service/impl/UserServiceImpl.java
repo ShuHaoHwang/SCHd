@@ -7,6 +7,7 @@ import model.UserExample;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import service.UserService;
 
 import java.util.HashMap;
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService {
         200：用户名已经存在
         100：无问题完成注册
         */
-        Map<String, Object> rs = new HashMap<>();        //这个地方我后期可以进行封装。信息+结果集一并搞定
+//        Map<String, Object> rs = new HashMap<>();        //这个地方我后期可以进行封装。信息+结果集一并搞定
 
 
         UserExample userExample = new UserExample();
@@ -89,6 +90,34 @@ public class UserServiceImpl implements UserService {
         resultInfo.setMsg("用户名可以使用");
 
         return resultInfo.getRs();
+    }
+
+    @Override
+    public Map<String, Object> login(User formUser) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUsernameEqualTo(formUser.getUsername()).andPasswordEqualTo(formUser.getPassword());
+
+        resultInfo = new ResultInfo();
+
+        Boolean flag = CollectionUtils.isEmpty(userMapper.selectByExample(userExample));
+
+
+        if (!flag) {
+
+            //返回成功信息
+            resultInfo.setStatus(100);
+            resultInfo.setMsg("登录验证成功");
+        }else if (flag){
+            resultInfo.setStatus(400);
+            resultInfo.setMsg("登陆失败，请检查用户名或者密码");
+        }else {
+            resultInfo.setMsg("系统异常，请联系管理员");
+        }
+
+        return resultInfo.getRs();
+
+
+
     }
 
     @Override

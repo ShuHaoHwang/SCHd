@@ -57,11 +57,12 @@
         </div>
         <div style="text-align: center;">
             <input type="submit" class="btn btn-success border" value="登入">
-            <input type="button" class="btn btn-success border" value="注册">
+            <!--<input type="button" class="btn btn-success border" value="注册">-->
         </div>
-        <div class="forgot">
-            <a href="/pages/register.html">
-                注册
+        <div class="forgot" align="right">
+            <p>没有账号</p>
+            <a href="/pages/register.html" style="color: #419641">
+                立即注册
             </a>
         </div>
         <br/>
@@ -108,17 +109,23 @@
                 $(b).parent().removeClass('has-error').addClass('has-success');
                 $(b).popover('destroy');
             },submitHandler:function(form){                     //验证通过执行这里
-                var la = layer.msg('正在处理...', {
-                    icon: 20
-                    ,shade: 0.5,
-                    time:0,
-                });
+                // var la = layer.msg('正在处理...', {
+                //     icon: 20
+                //     ,shade: 0.5,
+                //     time:0,
+                // });
 
                 $.ajax({
                     type:"post",
-                    url:"",
+                    url:"../user/login",
                     data:$("#loginForm").serialize(),
-                    success:function(data){}
+                    success:function(data){
+                        if(data.code==100){
+                            layer.msg(data.msg, {icon: 6});
+                        }if(data.code==400){
+                            layer.msg(data.msg);
+                        }
+                    }
                 });
             }
         });

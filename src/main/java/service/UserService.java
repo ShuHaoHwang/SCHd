@@ -11,6 +11,8 @@ public interface UserService {
 
     public Map<String, Object> register(User formUser);
 
+    public Map<String, Object> login(User formUser);
+
     int countByExample(UserExample example);
 
     int deleteByExample(UserExample example);

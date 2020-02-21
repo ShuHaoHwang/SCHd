@@ -22,7 +22,7 @@ public class PublicController {
 
     @ResponseBody
     @RequestMapping("/checkUser")
-    public Object User_Register(String username) {
+    public Object userRegister(String username) {
         System.out.println("执行注册");
         System.out.println(username);
         return service.checkUser(username);
@@ -31,11 +31,20 @@ public class PublicController {
 
     @ResponseBody
     @RequestMapping("/register")
-    public Object User_Register(User user) {
+    public Object userRegister(User user) {
         System.out.println("执行注册");
         System.out.println(user);
 
         return service.register(user);
+    }
+
+    @ResponseBody
+    @RequestMapping("/login")
+    public Object userLogin(User user) {
+        System.out.println("执行登录");
+        System.out.println(user);
+
+        return service.login(user);
     }
 
 

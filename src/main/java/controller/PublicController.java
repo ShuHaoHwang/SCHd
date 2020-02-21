@@ -40,11 +40,11 @@ public class PublicController {
 
     @ResponseBody
     @RequestMapping("/login")
-    public Object userLogin(User user) {
+    public Object userLogin(String username,String password) {//这里直接接用户名和密码了。不然一下子产生了很多user对象
         System.out.println("执行登录");
-        System.out.println(user);
+        System.out.println(username);
 
-        return service.login(user);
+        return service.login(username,password);
     }
 
 

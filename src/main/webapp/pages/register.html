@@ -26,7 +26,7 @@
 
 <div class="navbar navbar-default">
     <div class="navbar-brand">SCHd</div>
-    <p class="navbar-text">测试测试~~~~~~</p>
+    <p class="navbar-text">>_(:з」∠)_<</p>
     <ul class="nav navbar-nav">
         <li><a href="">首页</a></li>
         <li><a href="">关于我们</a></li>
@@ -148,7 +148,7 @@
                     data:$("#registerForm").serialize(),
                     success:function(data){
                         if(data.code==200){
-                            layer.msg("用户名已经存在");
+                            layer.msg(data.msg);
 
                         }if(data.code==100){
                             layer.msg('恭喜，注册成功，2秒后为您跳转到登录页面!', {icon: 6});

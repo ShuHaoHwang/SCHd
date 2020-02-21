@@ -7,14 +7,12 @@ import model.UserExample;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import service.UserService;
 import utils.DigestHelper;
+import utils.UuidUtil;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -22,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
     private UserMapper userMapper;
     //结果集对象
+
     private ResultInfo resultInfo;
 
 
@@ -32,6 +31,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户注册功能
+     *
      * @param formUser
      * @return
      */
@@ -49,29 +49,25 @@ public class UserServiceImpl implements UserService {
 
         if (!userMapper.selectByExample(userExample).isEmpty()) {
             //返回错误信息
-            resultInfo.setStatus(200);
-            resultInfo.setMsg("用户名已经存在");
+            resultInfo.setResult(200, "用户名已经存在");
 
             return resultInfo.getRs();
         }
 
         formUser.setStatus(0);                          //初始状态值设置为0 意为为激活 等待邮箱进行激活验证
-        formUser.setUuid(UUID.randomUUID().toString()); //设置UUID
+        formUser.setUuid(UuidUtil.getUuid()); //设置UUID
 
         //对密码进行加密
-        formUser.setSalt(UUID.randomUUID().toString());
+        formUser.setSalt(UuidUtil.getUuid());
         String pw = formUser.getPassword();
         String s = formUser.getSalt();
-        String rpw = md5(md5(s)+md5(pw+s));//我现在单纯只用md5进行加密。。还支持混合加密，先简单的试试吧
+        String rpw = md5(md5(s) + md5(pw + s));//我现在单纯只用md5进行加密。。还支持混合加密，先简单的试试吧
         formUser.setPassword(rpw);
 
         userMapper.insertSelective(formUser);
 
-
         //返回成功信息
-
-        resultInfo.setStatus(100);
-        resultInfo.setMsg("已经完成注册");
+        resultInfo.setResult(100, "已经完成注册");
 
         return resultInfo.getRs();
     }
@@ -79,6 +75,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户名查重功能
+     *
      * @param str
      * @return
      */
@@ -92,70 +89,52 @@ public class UserServiceImpl implements UserService {
 
         if (!userMapper.selectByExample(userExample).isEmpty() && str != null) {
             //返回错误信息
-            resultInfo.setStatus(200);
-            resultInfo.setMsg("用户名已经存在");
+            resultInfo.setResult(200, "用户名已经存在");
             return resultInfo.getRs();
         }
 
         //返回成功信息
-        resultInfo.setStatus(100);
-        resultInfo.setMsg("用户名可以使用");
+        resultInfo.setResult(100, "用户名可以使用");
 
         return resultInfo.getRs();
     }
 
     @Override
-    public Map<String, Object> login(String username,String password) {
+    public Map<String, Object> login(String username, String password) {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUsernameEqualTo(username);
 
         resultInfo = new ResultInfo();
 
-//        Boolean flag = CollectionUtils.isEmpty(userMapper.selectByExample(userExample));
-
-
-//        if (!flag) {
-//
-//            //返回成功信息
-//            resultInfo.setStatus(100);
-//            resultInfo.setMsg("登录验证成功");
-//        }else if (flag){
-//            resultInfo.setStatus(400);
-//            resultInfo.setMsg("登陆失败，请检查用户名或者密码");
-//        }else {
-//            resultInfo.setMsg("系统异常，请联系管理员");
-//        }
-//
-//        return resultInfo.getRs();
 
         //单独写开防止产生多个List对象
         List<User> u = userMapper.selectByExample(userExample);
-        if(u.isEmpty()){
-            resultInfo.setStatus(400);
-            resultInfo.setMsg("用户名不存在");
+        if (u.isEmpty()) {
+            resultInfo.setResult(400, "用户名不存在");
             return resultInfo.getRs();
         }
         //如果用户存在那么这里就对其输入的明文密码进行加密 与数据库加密后的密码进行比对
         User loginUser = u.get(0);
         String pw = password;
         String s = loginUser.getSalt();
-        String rpw = md5(md5(s)+md5(pw+s));
-        if(rpw.equals(loginUser.getPassword())){
+        String rpw = md5(md5(s) + md5(pw + s));
+
+        System.out.println(rpw);
+
+        if (rpw.equals(loginUser.getPassword())) {
             //返回成功信息
-            resultInfo.setStatus(100);
-            resultInfo.setMsg("登录验证成功");
+            resultInfo.setResult(100, "登录验证成功");
             return resultInfo.getRs();
         }
 
-        resultInfo.setStatus(400);
-        resultInfo.setMsg("密码错误");
+        resultInfo.setResult(400, "密码错误");
         return resultInfo.getRs();
     }
 
 
-
-    private String md5(String t){ return DigestHelper.md5(t); }
-
+    private String md5(String t) {
+        return DigestHelper.md5(t);
+    }
 
 
     @Override

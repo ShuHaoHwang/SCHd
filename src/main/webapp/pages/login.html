@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>用户注册</title>
+    <title>Wellcome to SCHd</title>
 
 
     <!-- 导入CSS的全局样式 -->
@@ -26,7 +26,7 @@
 
 <div class="navbar navbar-default">
     <div class="navbar-brand">SCHd</div>
-    <p class="navbar-text">测试测试~~~~~~</p>
+    <p class="navbar-text">_(:з」∠)_</p>
     <ul class="nav navbar-nav">
         <li><a href="">首页</a></li>
         <li><a href="">关于我们</a></li>
@@ -35,11 +35,8 @@
 
 
 <div class="container" style="width: 330px; margin-top: 130px">
-    <h1 style="text-align: center;">用户注册</h1>
-    <div style="text-align: right;">
-        <a href="/pages/login.html" class="signup-link gapps"><span>已有账号, 登录</span></a>
-    </div>
-    <form id="registerForm" action="" method="post">
+    <h1 style="text-align: center;">登录</h1>
+    <form id="loginForm" action="" method="post">
         <div id="message"></div>
         <label for="id">用户名:</label>
         <div id="id">
@@ -53,47 +50,32 @@
             <input id="password" class="form-control border" maxlength="18"
                    name="password" placeholder="密码" type="password" data-required>
         </div>
-        <label for="id_password2">确认密码:</label>
-        <div id="id_password2">
-            <input maxlength="18" class="form-control border" name="password2"
-                   placeholder="请再输入一次密码" type="password" data-required
-                   data-conditional="confirm" data-describedby="message"
-                   data-description="confirm">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="rememberMe" value="1"> 记住登录状态
+            </label>
         </div>
-        <hr/>
         <div style="text-align: center;">
-            <input type="submit" class="btn btn-success border" value="注 册">
+            <input type="submit" class="btn btn-success border" value="登入">
+            <input type="button" class="btn btn-success border" value="注册">
+        </div>
+        <div class="forgot">
+            <a href="/pages/register.html">
+                注册
+            </a>
         </div>
         <br/>
         <!--&lt;!&ndash; BootStrap 出错显示的信息框 &ndash;&gt;-->
         <!--<div class="alert alert-warning alert-dismissible" role="alert">-->
-            <!--<button type="button" class="close" data-dismiss="alert">-->
-                <!--<span>&times;</span>-->
-            <!--</button>-->
-            <!--<strong id="errorMsg">登录校验信息回显框</strong>-->
+        <!--<button type="button" class="close" data-dismiss="alert">-->
+        <!--<span>&times;</span>-->
+        <!--</button>-->
+        <!--<strong id="errorMsg">登录校验信息回显框</strong>-->
         <!--</div>-->
-
     </form>
 </div>
 <script type="text/javascript">
     $(function() {              // 在键盘按下并释放及提交后验证提交表单
-       $("#username").blur(function () {
-            $.ajax({
-                url:"../user/checkUser",
-                data:{"username":$("#username").val()},
-                type:"post",
-                success:function(data){
-                    if (data.code == 200) {
-                        layer.msg(data.msg);
-                        $(username).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
-                    }
-                    if(data.code == 300){
-                        layer.msg(data.msg);
-                        $(email).closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
-                    }
-                }
-            });
-        });
         $("form").validate({
             debug:false,         //只验证，不提交
             rules : {
@@ -105,11 +87,6 @@
                     required : true,
                     minlength : 5
                 },
-                password2 : {
-                    required : true,
-                    minlength : 5,
-                    equalTo : "#password"
-                }
             },
             messages : {
                 username : {
@@ -120,11 +97,6 @@
                     required : "请输入登录密码",
                     minlength : "密码长度不能小于 5"
                 },
-                password2 : {
-                    required : "请重复输入密码",
-                    minlength : "密码长度不能小于 5 个字母",
-                    equalTo : "两次密码输入不一致"
-                }//这边是检测+弹窗提示操作，稍有些不灵敏。望老白能看一看 能修就修一下
             },errorPlacement: function(error, element) {        //element是jquery对象
                 element.popover('destroy');                     //清除上次的弹窗
                 element.popover({
@@ -136,7 +108,7 @@
                 $(b).parent().removeClass('has-error').addClass('has-success');
                 $(b).popover('destroy');
             },submitHandler:function(form){                     //验证通过执行这里
-                var la = layer.msg('正在处理你的注册信息哦！！', {
+                var la = layer.msg('正在处理...', {
                     icon: 20
                     ,shade: 0.5,
                     time:0,
@@ -144,30 +116,13 @@
 
                 $.ajax({
                     type:"post",
-                    url:"../user/register",
-                    data:$("#registerForm").serialize(),
-                    success:function(data){
-                        if(data.code==200){
-                            layer.msg("用户名已经存在");
-
-                        }if(data.code==100){
-                            layer.msg('恭喜，注册成功，2秒后为您跳转到登录页面!', {icon: 6});
-                            setTimeout(function(){
-                                window.location.href='/pages/login.html';
-                            },2000);
-                        }
-
-                    }
+                    url:"",
+                    data:$("#loginForm").serialize(),
+                    success:function(data){}
                 });
             }
         });
     });
 </script>
-
-<!-- jQuery导入,为兼容低版本浏览器我们选择1.x.x 2.x版本 -->
-<!-- <script src="/js/jquery-2.1.0.min"></script> -->
-<!-- 导入bootstrap的js文件 -->
-<!-- <script src="/js/bootstrap.min.js"></script> -->
-
 </body>
 </html>

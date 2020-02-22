@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Wellcome to SCHd</title>
+
+
+  <!-- 导入CSS的全局样式 -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/register.css"/>
+  <link rel="stylesheet" href="../css/userLogin.css"/>
+
+
+  <script src="../js/jQuery.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/messages_zh.min.js"></script>
+  <script src="../js/layer/layer.js"></script>
+</head>
+
+<body>
+
+<div class="navbar navbar-default">
+  <div class="navbar-brand">SCHd</div>
+  <p class="navbar-text">_(:з」∠)_</p>
+  <ul class="nav navbar-nav">
+    <li><a href="">首页</a></li>
+    <li><a href="">关于我们</a></li>
+  </ul>
+  
+  <ul class="nav navbar-nav navbar-right sign">
+  		<li id="flip" class="dropdown">
+  					<a href="" class=" dropdown-toggle" data-toggle="dropdown">
+  						我
+  					</a>
+  			<ul id="panel" class="dropdown-menu" role="menu">
+  		        <li>
+					<a href="" >
+  		             <span>组群</span>
+					</a>
+					<a href="" >
+						<span>个人信息</span>
+					</a>
+  		        </li>
+  		        <li class="divider"></li>
+  				<li><a href="">后台管理</a></li>
+  		        <li><a href="">退出</a></li>
+  		    </ul>
+  		</li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right sign">
+  		<li id="flip2" class="dropdown">
+  					<a href="" class=" dropdown-toggle" data-toggle="dropdown">
+  						我
+  					</a>
+  			<ul id="panel2" class="dropdown-menu" role="menu">
+  		        <li>
+  					<a href="" >
+  		             <span>组群</span>
+  					</a>
+  					<a href="" >
+  						<span>个人信息</span>
+  					</a>
+  		        </li>
+  		        <li class="divider"></li>
+  				<li><a href="">后台管理</a></li>
+  		        <li><a href="">退出</a></li>
+  		    </ul>
+  		</li>
+  </ul>
+</div>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("fast");
+  });
+});
+</script>
+</body>
+</html>

@@ -1,114 +1,113 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Wellcome to SCHd</title>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Wellcome to SCHd</title>
 
 
-    <!-- 导入CSS的全局样式 -->
-
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/register.css" />
-    <script src="../js/jQuery.js"></script>
-
-
-    <script src="../js/bootstrap.js"></script>
+  <!-- 导入CSS的全局样式 -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/register.css"/>
+  <link rel="stylesheet" href="../css/userLogin.css"/>
 
 
-    <script src="../js/jquery.validate.min.js"></script>
-    <script src="../js/messages_zh.min.js"></script>
-    <script src="../js/layer/layer.js"></script>
+  <script src="../js/jQuery.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/messages_zh.min.js"></script>
+  <script src="../js/layer/layer.js"></script>
 </head>
 
 <body>
 
 <div class="navbar navbar-default">
-    <div class="navbar-brand">SCHd</div>
-    <p class="navbar-text">_(:з」∠)_</p>
-    <ul class="nav navbar-nav">
-        <li><a href="">首页</a></li>
-        <li><a href="">关于我们</a></li>
-    </ul>
+  <div class="navbar-brand">SCHd</div>
+  <p class="navbar-text">_(:з」∠)_</p>
+  <ul class="nav navbar-nav">
+    <li><a href="">首页</a></li>
+    <li><a href="">关于我们</a></li>
+  </ul>
 </div>
 
+<div class="lg_layout">
 
-<div class="container" style="width: 330px; margin-top: 130px">
-    <h1 style="text-align: center;">登录</h1>
-    <form id="loginForm" action="" method="post">
+  <div class="lg_left">
+    <div style="width: 270px;">
+      <h1 style="text-align: center;">登录</h1>
+      <form id="loginForm" action="" method="post">
         <div id="message"></div>
         <label for="id">用户名:</label>
         <div id="id">
-            <input id="username" maxlength="18" class="form-control border" name="username"
-                   value="" placeholder="用户名" type="text" data-required
-                   data-conditional="username" data-description="username"
-                   data-describedby="message">
+          <input id="username" maxlength="18" class="form-control border" name="username"
+                 value="" placeholder="用户名" type="text" data-required
+                 data-conditional="username" data-description="username"
+                 data-describedby="message">
         </div>
         <label for="id_password">密码:</label>
         <div id="id_password">
-            <input id="password" class="form-control border" maxlength="18"
-                   name="password" placeholder="密码" type="password" data-required>
+          <input id="password" class="form-control border" maxlength="18"
+                 name="password" placeholder="密码" type="password" data-required>
         </div>
         <div class="checkbox">
-            <label>
-                <input type="checkbox" name="rememberMe" value="1"> 记住登录状态
-            </label>
+          <label>
+            <input type="checkbox" name="rememberMe" value="1"> 记住登录状态
+          </label>
         </div>
         <div style="text-align: center;">
-            <input type="submit" class="btn btn-success border" value="登入">
-            <!--<input type="button" class="btn btn-success border" value="注册">-->
+          <input type="submit" class="btn btn-success border" value="登入">
+          <!--<input type="button" class="btn btn-success border" value="注册">-->
         </div>
-        <div class="forgot" align="right">
-            <p>没有账号</p>
-            <a href="/pages/register.html" style="color: #419641">
-                立即注册
-            </a>
-        </div>
-        <br/>
-        <!--&lt;!&ndash; BootStrap 出错显示的信息框 &ndash;&gt;-->
-        <!--<div class="alert alert-warning alert-dismissible" role="alert">-->
-        <!--<button type="button" class="close" data-dismiss="alert">-->
-        <!--<span>&times;</span>-->
-        <!--</button>-->
-        <!--<strong id="errorMsg">登录校验信息回显框</strong>-->
-        <!--</div>-->
-    </form>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="lg_right">
+    <p>没有账号?</p>
+    <a href="/pages/register.html" style="color: #419641">
+      立即注册 >
+    </a>
+  </div>
+
 </div>
+
+
 <script type="text/javascript">
-    $(function() {              // 在键盘按下并释放及提交后验证提交表单
+    $(function () {              // 在键盘按下并释放及提交后验证提交表单
         $("form").validate({
-            debug:false,         //只验证，不提交
-            rules : {
-                username : {
-                    required : true,
-                    minlength : 3
+            debug: false,         //只验证，不提交
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 3
                 },
-                password : {
-                    required : true,
-                    minlength : 5
+                password: {
+                    required: true,
+                    minlength: 5
                 },
             },
-            messages : {
-                username : {
-                    required : "请输入用户名",
-                    minlength : "用户名长度不能小于3"
+            messages: {
+                username: {
+                    required: "请输入用户名",
+                    minlength: "用户名长度不能小于3"
                 },
-                password : {
-                    required : "请输入登录密码",
-                    minlength : "密码长度不能小于 5"
+                password: {
+                    required: "请输入登录密码",
+                    minlength: "密码长度不能小于 5"
                 },
-            },errorPlacement: function(error, element) {        //element是jquery对象
+            }, errorPlacement: function (error, element) {        //element是jquery对象
                 element.popover('destroy');                     //清除上次的弹窗
                 element.popover({
-                    content:error[0].innerHTML                  //弹窗显示错误信息
+                    content: error[0].innerHTML                  //弹窗显示错误信息
                 });
                 element.click();                                //点击后检查
                 element.closest('div').removeClass('has-success').addClass('has-error');//改变输入框的颜色
-            },success:function(a, b) {
+            }, success: function (a, b) {
                 $(b).parent().removeClass('has-error').addClass('has-success');
                 $(b).popover('destroy');
-            },submitHandler:function(form){                     //验证通过执行这里
+            }, submitHandler: function (form) {                     //验证通过执行这里
                 // var la = layer.msg('正在处理...', {
                 //     icon: 20
                 //     ,shade: 0.5,
@@ -116,13 +115,14 @@
                 // });
 
                 $.ajax({
-                    type:"post",
-                    url:"../user/login",
-                    data:$("#loginForm").serialize(),
-                    success:function(data){
-                        if(data.code==100){
+                    type: "post",
+                    url: "../user/login",
+                    data: $("#loginForm").serialize(),
+                    success: function (data) {
+                        if (data.code == 100) {
                             layer.msg(data.msg, {icon: 6});
-                        }if(data.code==400){
+                        }
+                        if (data.code == 400) {
                             layer.msg(data.msg);
                         }
                     }

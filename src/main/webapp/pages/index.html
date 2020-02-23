@@ -9,9 +9,10 @@
 
   <!-- 导入CSS的全局样式 -->
   <link href="../css/bootstrap.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/register.css"/>
-  <link rel="stylesheet" href="../css/userLogin.css"/>
+  <!--<link rel="stylesheet" href="../css/register.css"/>-->
+  <!--<link rel="stylesheet" href="../css/userLogin.css"/>-->
 
+  <link rel="stylesheet" href="../css/index.css/">
 
   <script src="../js/jQuery.js"></script>
   <script src="../js/bootstrap.js"></script>
@@ -29,54 +30,133 @@
     <li><a href="">首页</a></li>
     <li><a href="">关于我们</a></li>
   </ul>
-  
+
   <ul class="nav navbar-nav navbar-right sign">
-  		<li id="flip" class="dropdown">
-  					<a href="" class=" dropdown-toggle" data-toggle="dropdown">
-  						我
-  					</a>
-  			<ul id="panel" class="dropdown-menu" role="menu">
-  		        <li>
-					<a href="" >
-  		             <span>组群</span>
-					</a>
-					<a href="" >
-						<span>个人信息</span>
-					</a>
-  		        </li>
-  		        <li class="divider"></li>
-  				<li><a href="">后台管理</a></li>
-  		        <li><a href="">退出</a></li>
-  		    </ul>
-  		</li>
+    <li id="flip" class="dropdown">
+      <a href="" class=" dropdown-toggle" data-toggle="dropdown">
+        我
+      </a>
+      <ul id="panel" class="dropdown-menu" role="menu">
+        <li>
+          <a href="">
+            <span>组群</span>
+          </a>
+          <a href="">
+            <span>个人信息</span>
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="">后台管理</a></li>
+        <li><a href="">退出</a></li>
+      </ul>
+    </li>
   </ul>
   <ul class="nav navbar-nav navbar-right sign">
-  		<li id="flip2" class="dropdown">
-  					<a href="" class=" dropdown-toggle" data-toggle="dropdown">
-  						我
-  					</a>
-  			<ul id="panel2" class="dropdown-menu" role="menu">
-  		        <li>
-  					<a href="" >
-  		             <span>组群</span>
-  					</a>
-  					<a href="" >
-  						<span>个人信息</span>
-  					</a>
-  		        </li>
-  		        <li class="divider"></li>
-  				<li><a href="">后台管理</a></li>
-  		        <li><a href="">退出</a></li>
-  		    </ul>
-  		</li>
+    <li id="flip2" class="dropdown">
+      <a href="" class=" dropdown-toggle" data-toggle="dropdown">
+        我
+      </a>
+      <ul id="panel2" class="dropdown-menu" role="menu">
+        <li>
+          <a href="">
+            <span>组群</span>
+          </a>
+          <a href="">
+            <span>个人信息</span>
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="">后台管理</a></li>
+        <li><a href="">退出</a></li>
+      </ul>
+    </li>
   </ul>
 </div>
-<script> 
-$(document).ready(function(){
-  $("#flip").click(function(){
-    $("#panel").slideToggle("fast");
-  });
-});
+
+<div class="container-fluid">
+
+  <div class="col-sm-3 col-md-2 main_left">
+    代码结构树
+  </div>
+
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main_center">
+
+    <h1 class="page-header">北方少女的梦</h1>
+
+    <div class="overall-mission">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">总体任务</h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">任务1</li>
+          <li class="list-group-item">任务2</li>
+          <li class="list-group-item">任务3</li>
+          <li class="list-group-item">任务4</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="list-mission">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">任务清单</h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">任务1</li>
+          <li class="list-group-item">任务2</li>
+          <li class="list-group-item">任务3</li>
+          <li class="list-group-item">任务4</li>
+        </ul>
+      </div>
+    </div>
+
+    <!--<div class="logo">-->
+      <!--<img src="../img/logo.jpeg" width="200" height="200" class="img-responsive">-->
+    <!--</div>-->
+
+    <div class="clear" ></div>
+
+    <div class="members-module">
+      <div class="col-xs-6 col-sm-3 placeholder">
+        <img src="../img/logo.jpeg" width="100" height="100" class="img-responsive">
+        <h4>用户1</h4>
+        <span class="text-muted">这是用户1</span>
+      </div>
+      <div class="col-xs-6 col-sm-3 placeholder">
+        <img src="../img/logo.jpeg" width="100" height="100" class="img-responsive">
+        <h4>用户2</h4>
+        <span class="text-muted">这是用户2</span>
+      </div>
+      <div class="col-xs-6 col-sm-3 placeholder">
+        <img src="../img/logo.jpeg" width="100" height="100" class="img-responsive">
+        <h4>用户3</h4>
+        <span class="text-muted">这是用户3</span>
+      </div>
+      <div class="col-xs-6 col-sm-3 placeholder">
+        <img src="../img/logo.jpeg" width="100" height="100" class="img-responsive">
+        <h4>用户4</h4>
+        <span class="text-muted">这是用户4</span>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div class="col-sm-3 col-md-2 main_right">
+    成员信息或空白
+  </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#panel").slideToggle("fast");
+        });
+    });
 </script>
 </body>
 </html>

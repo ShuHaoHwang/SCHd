@@ -1,453 +1,415 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<!-- 导入CSS的全局样式 -->
-		<link href="../css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="../css/style.css"/>
-		
-
-		
-		
-		<!--  Light Bootstrap Table core CSS    这个是边界边框css -->
-<!-- 		<link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/> -->
-		
-		<!--中间部分最左上角区域-->
-		<!-- Font Awesome CSS-->
-		<link rel="stylesheet" href="../TestCss/font-awesome/css/font-awesome.min.css">
-		<!-- Google fonts - Poppins -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
-		<!-- theme stylesheet-->
-		<link rel="stylesheet" href="../TestCss/style.default.css" id="theme-stylesheet">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!-- 导入CSS的全局样式 -->
+	<link href="../css/bootstrap.css" rel="stylesheet">
 
 
-		<!--中间部分最右下角区域-->
-		<link href="../TestCss/dashboard1.css" rel="stylesheet">
-		<link href="../TestCss/style.css" rel="stylesheet">
-		
-		<!--中间部分最左下角区域-->
-		<link href="../TestCss/chartist.min.css" rel="stylesheet">
-		<link href="../TestCss/style.min.css" rel="stylesheet">
-		
-		<script src="../js/jQuery.js"></script>
-		<script src="../js/bootstrap.js"></script>
-		<!--<script src="../js/jquery.flexslider.js"></script>-->
-		
-	</head>
-	<body>
-		<div class="navbar navbar-default">
-		  <div class="navbar-brand">SCHd</div>
-		  <p class="navbar-text">_(:з」∠)_</p>
-		  <ul class="nav navbar-nav">
-		    <li><a href="">首页</a></li>
-		    <li><a href="">关于我们</a></li>
-		  </ul>
-		
-		  <ul class="nav navbar-nav navbar-right sign">
-		    <li id="flip" class="dropdown">
-		      <a href="" class=" dropdown-toggle" data-toggle="dropdown">
-		        我
-		      </a>
-		      <ul id="panel" class="dropdown-menu" role="menu">
-		        <li>
-		          <a href="">
-		            <span>组群</span>
-		          </a>
-		          <a href="">
-		            <span>个人信息</span>
-		          </a>
-		        </li>
-		        <li class="divider"></li>
-		        <li><a href="">后台管理</a></li>
-		        <li><a href="">退出</a></li>
-		      </ul>
-		    </li>
-		  </ul>
-		  <ul class="nav navbar-nav navbar-right sign">
-		    <li id="flip2" class="dropdown">
-		      <a href="" class=" dropdown-toggle" data-toggle="dropdown">
-		        我
-		      </a>
-		      <ul id="panel2" class="dropdown-menu" role="menu">
-		        <li>
-		          <a href="">
-		            <span>组群</span>
-		          </a>
-		          <a href="">
-		            <span>个人信息</span>
-		          </a>
-		        </li>
-		        <li class="divider"></li>
-		        <li><a href="">后台管理</a></li>
-		        <li><a href="">退出</a></li>
-		      </ul>
-		    </li>
-		  </ul>
-		</div>
-		 <aside class="col-12 col-md-4 col-lg-3 bg-white border-right border-bottom hide-md hide-sm">
-			  <div class="col-sm-3 col-md-2 main_left">
-			<div>代码结构树</div>
-			</div>
-		</aside>
-		<div class="col-12 col-md-8 col-lg-6 p-responsive mt-3 border-bottom d-flex flex-auto">
-		      <div class="mx-auto d-flex flex-auto flex-column" style="max-width: 1400px">
-		        <main class="flex-auto">
-					<!--start-->
-					<div class="container-fluid">
-					    <!-- ============================================================== -->
-					    <!-- Email campaign chart -->
-					    <!-- ============================================================== -->
-					    <div class="row">
-					        <div class="col-md-8">
-								<!--中间部分最左上角-->
-								<div class="checklist card">
-								  <div class="card-close">
-								    <div class="dropdown">
-								      <button type="button" id="closeCard5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-								      <div aria-labelledby="closeCard5" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-								    </div>
-								  </div>
-								  <div class="card-header d-flex align-items-center">           
-								    <h2 class="h3">To Do List </h2>
-								  </div>
-								  <div class="card-body no-padding">
-								    <div class="item d-flex">
-								      <input type="checkbox" id="input-1" name="input-1" class="checkbox-template">
-								      <label for="input-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-								    </div>
-								    <div class="item d-flex">
-								      <input type="checkbox" id="input-2" name="input-2" class="checkbox-template">
-								      <label for="input-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-								    </div>
-								    <div class="item d-flex">
-								      <input type="checkbox" id="input-3" name="input-3" class="checkbox-template">
-								      <label for="input-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-								    </div>
-								    <div class="item d-flex">
-								      <input type="checkbox" id="input-4" name="input-4" class="checkbox-template">
-								      <label for="input-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-								    </div>
-								    <div class="item d-flex">
-								      <input type="checkbox" id="input-5" name="input-5" class="checkbox-template">
-								      <label for="input-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-								    </div>
-								    <div class="item d-flex">
-								      <input type="checkbox" id="input-6" name="input-6" class="checkbox-template">
-								      <label for="input-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-								    </div>
-								  </div>
-								</div>
-					        </div>
-					        <div class="col-md-4">
-					            <div class="card">
-					                <div class="card-body">
-					                    <h5 class="card-title m-b-5">Referral Earnings</h5>
-					                    <h3 class="font-light">$769.08</h3>
-					                    <div class="m-t-20 text-center">
-					                        <div id="earnings"></div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="card">
-					                <div class="card-body">
-					                    <h4 class="card-title m-b-0">Users</h4>
-					                    <h2 class="font-light">35,658 <span class="font-16 text-success font-medium">+23%</span></h2>
-					                    <div class="m-t-30">
-					                        <div class="row text-center">
-					                            <div class="col-6 border-right">
-					                                <h4 class="m-b-0">58%</h4>
-					                                <span class="font-14 text-muted">New Users</span>
-					                            </div>
-					                            <div class="col-6">
-					                                <h4 class="m-b-0">42%</h4>
-					                                <span class="font-14 text-muted">Repeat Users</span>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					    </div>
-					    <div class="row">
-					        <!-- column -->
-					        <div class="col-12">
-								<!--中间部分中部区域-->
-					        </div>
-					    </div>
+	<!--  Light Bootstrap Table core CSS    这个是边界边框css -->
+	<link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/style.css" />
 
-					    <div class="row">
-					        <!-- column -->
-					        <div class="col-lg-6">
-								<!--中间部分最左下角区域-->
-								<div class="card">
-								    <div class="card-body">
-								        <h4 class="card-title">Recent Comments</h4>
-								    </div>
-								    <div class="comment-widgets" style="height:430px;">
-								        <!-- Comment Row -->
-								        <div class="d-flex flex-row comment-row m-t-0">
-								            <div class="p-2">
-								                <img src="../assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle">
-								            </div>
-								            <div class="comment-text w-100">
-								                <h6 class="font-medium">James Anderson</h6>
-								                <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-								                <div class="comment-footer">
-								                    <span class="text-muted float-right">April 14, 2016</span>
-								                    <span class="label label-rounded label-primary">Pending</span>
-								                    <span class="action-icons">
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-pencil-alt"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-check"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-heart"></i>
-								                        </a>
-								                    </span>
-								                </div>
-								            </div>
-								        </div>
-								        <!-- Comment Row -->
-								        <div class="d-flex flex-row comment-row">
-								            <div class="p-2">
-								                <img src="../assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle">
-								            </div>
-								            <div class="comment-text active w-100">
-								                <h6 class="font-medium">Michael Jorden</h6>
-								                <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-								                <div class="comment-footer ">
-								                    <span class="text-muted float-right">April 14, 2016</span>
-								                    <span class="label label-success label-rounded">Approved</span>
-								                    <span class="action-icons active">
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-pencil-alt"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="icon-close"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-heart text-danger"></i>
-								                        </a>
-								                    </span>
-								                </div>
-								            </div>
-								        </div>
-								        <!-- Comment Row -->
-								        <div class="d-flex flex-row comment-row">
-								            <div class="p-2">
-								                <img src="../assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle">
-								            </div>
-								            <div class="comment-text w-100">
-								                <h6 class="font-medium">Johnathan Doeting</h6>
-								                <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-								                <div class="comment-footer">
-								                    <span class="text-muted float-right">April 14, 2016</span>
-								                    <span class="label label-rounded label-danger">Rejected</span>
-								                    <span class="action-icons">
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-pencil-alt"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-check"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-heart"></i>
-								                        </a>
-								                    </span>
-								                </div>
-								            </div>
-								        </div>
-								        <!-- Comment Row -->
-								        <div class="d-flex flex-row comment-row m-t-0">
-								            <div class="p-2">
-								                <img src="../assets/images/users/2.jpg" alt="user" width="50" class="rounded-circle">
-								            </div>
-								            <div class="comment-text w-100">
-								                <h6 class="font-medium">Steve Jobs</h6>
-								                <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-								                <div class="comment-footer">
-								                    <span class="text-muted float-right">April 14, 2016</span>
-								                    <span class="label label-rounded label-primary">Pending</span>
-								                    <span class="action-icons">
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-pencil-alt"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-check"></i>
-								                        </a>
-								                        <a href="javascript:void(0)">
-								                            <i class="ti-heart"></i>
-								                        </a>
-								                    </span>
-								                </div>
-								            </div>
-								        </div>
-								    </div>
-								</div>
-					        </div>
-							
-					        <!-- column -->
-							<div class="col-md-6">
-								<!--中间部分最右下角区域-->
-								<div class="card">
-								    <div class="card-body">
-								        <h5 class="card-title">Today's Schedule</h5>
-								        <h6 class="card-subtitle">check out your daily schedule</h6>
-								        <div class="steamline m-t-40">
-								            <div class="sl-item">
-								                <div class="sl-left bg-success"> <i class="fa fa-user"></i></div>
-								                <div class="sl-right">
-								                    <div class="font-medium">Meeting today <span class="sl-date"> 5pm</span></div>
-								                    <div class="desc">you can write anything </div>
-								                </div>
-								            </div>
-								            <div class="sl-item">
-								                <div class="sl-left bg-info"><i class="fa fa-image"></i></div>
-								                <div class="sl-right">
-								                    <div class="font-medium">Send documents to Clark</div>
-								                    <div class="desc">Lorem Ipsum is simply </div>
-								                </div>
-								            </div>
-								            <div class="sl-item">
-								                <div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/1.jpg"> </div>
-								                <div class="sl-right">
-								                    <div class="font-medium">John Doe <span class="sl-date"> 5pm</span></div>
-								                    <div class="desc">Call today with gohn doe </div>
-								                </div>
-								            </div>
-								            <div class="sl-item">
-								                <div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/2.jpg"> </div>
-								                <div class="sl-right">
-								                    <div class="font-medium">Go to the Doctor <span class="sl-date">5 minutes ago</span></div>
-								                    <div class="desc">Contrary to popular belief</div>
-								                </div>
-								            </div>
-								            <div class="sl-item">
-								                <div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/3.jpg"> </div>
-								                <div class="sl-right">
-								                    <div><a href="#">Tiger Sroff</a> <span class="sl-date">5 minutes ago</span></div>
-								                    <div class="desc">Approve meeting with tiger
-								                        <br><a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Apporve</a> <a href="javascript:void(0)" class="btn m-t-10 btn-rounded btn-outline-danger">Refuse</a> </div>
-								                </div>
-								            </div>
-								        </div>
-								    </div>
+	<!--中间部分最左上角区域Start-->
+	<!-- Font Awesome CSS-->
+	<link rel="stylesheet" href="../TestCss/font-awesome/css/font-awesome.min.css">
+	<!-- Google fonts - Poppins -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+	<!-- theme stylesheet-->
+	<!--中间部分最左上角区域End-->
+
+
+
+</head>
+<body>
+<div class="navbar navbar-default" style="z-index: 50;position: fixed;width: 100%;">
+	<div class="navbar-brand">SCHd</div>
+	<p class="navbar-text">_(:з」∠)_</p>
+	<ul class="nav navbar-nav">
+		<li><a href="">首页</a></li>
+		<li><a href="">关于我们</a></li>
+	</ul>
+
+	<ul class="nav navbar-nav navbar-right sign">
+		<li id="flip" class="dropdown">
+			<a href="" class=" dropdown-toggle" data-toggle="dropdown">
+				我
+			</a>
+			<ul id="panel" class="dropdown-menu" role="menu">
+				<li>
+					<a href="">
+						<span>组群</span>
+					</a>
+					<a href="">
+						<span>个人信息</span>
+					</a>
+				</li>
+				<li class="divider"></li>
+				<li><a href="">后台管理</a></li>
+				<li><a href="">退出</a></li>
+			</ul>
+		</li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right sign">
+		<li id="flip2" class="dropdown">
+			<a href="" class=" dropdown-toggle" data-toggle="dropdown">
+				我
+			</a>
+			<ul id="panel2" class="dropdown-menu" role="menu">
+				<li>
+					<a href="">
+						<span>组群</span>
+					</a>
+					<a href="">
+						<span>个人信息</span>
+					</a>
+				</li>
+				<li class="divider"></li>
+				<li><a href="">后台管理</a></li>
+				<li><a href="">退出</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<aside class="left-sidebar" style="position: fixed;">
+	<!--左侧栏区
+    <!-- Sidebar scroll-->
+	<div class="scroll-sidebar">
+		<!-- Sidebar navigation-->
+		<nav class="sidebar-nav">
+			<ul id="sidebarnav">
+				<li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+						class="hide-menu">Dashboard</span></a>
+				</li>
+				<li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span
+						class="hide-menu">Profile</span></a>
+				</li>
+				<li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span
+						class="hide-menu">Basic Table</span></a>
+				</li>
+				<li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span
+						class="hide-menu">Icons</span></a>
+				</li>
+				<li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span
+						class="hide-menu">Google Map</span></a>
+				</li>
+				<li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span
+						class="hide-menu">Blank Page</span></a>
+				</li>
+				<li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span
+						class="hide-menu">Error 404</span></a>
+				</li>
+			</ul>
+			<!-- 		                    <div class="text-center m-t-30">
+                        <a href="#" class="btn waves-effect waves-light btn-warning hidden-md-down"> Upgrade to Pro</a>
+                    </div> -->
+		</nav>
+		<!-- End Sidebar navigation -->
+	</div>
+	<!-- End Sidebar scroll-->
+	<!-- Bottom points-->
+	<div class="sidebar-footer">
+		<!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+		<!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+		<!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+	<!-- End Bottom points-->
+	</div>
+
+</aside>
+
+<div class="page-wrapper">
+	<div class="container-fluid">
+
+		<!--start-->
+		<div class="container-fluid">
+			<!-- ============================================================== -->
+			<!-- Email campaign chart -->
+			<!-- ============================================================== -->
+			<div class="row">
+				<div class="col-md-5">
+					<!--中间部分最左上角-->
+					<!--待完成事件todo list Start-->
+					<div class="checklist card">
+						<div class="card-close">
+							<div class="dropdown">
+								<button type="button" id="closeCard5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i
+										class="fa fa-ellipsis-v"></i></button>
+								<div aria-labelledby="closeCard5" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove">
+									<i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+							</div>
+						</div>
+						<div class="card-header d-flex align-items-center">
+							<h2 class="h3">To Do List </h2>
+						</div>
+						<div class="card-body no-padding">
+							<div class="item d-flex">
+								<input type="checkbox" id="input-1" name="input-1" class="checkbox-template">
+								<label for="input-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+							</div>
+							<div class="item d-flex">
+								<input type="checkbox" id="input-2" name="input-2" class="checkbox-template">
+								<label for="input-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+							</div>
+							<div class="item d-flex">
+								<input type="checkbox" id="input-3" name="input-3" class="checkbox-template">
+								<label for="input-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+							</div>
+							<div class="item d-flex">
+								<input type="checkbox" id="input-4" name="input-4" class="checkbox-template">
+								<label for="input-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+							</div>
+							<div class="item d-flex">
+								<input type="checkbox" id="input-5" name="input-5" class="checkbox-template">
+								<label for="input-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+							</div>
+							<div class="item d-flex">
+								<input type="checkbox" id="input-6" name="input-6" class="checkbox-template">
+								<label for="input-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+							</div>
+						</div>
+					</div>
+					<!--待完成事件todo list End-->
+				</div>
+				<div class="col-md-3">
+					<!--板块1 Start-->
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title m-b-5">Referral Earnings</h5>
+							<h3 class="font-light">$769.08</h3>
+							<div class="m-t-20 text-center">
+								<div id="earnings"></div>
+							</div>
+						</div>
+					</div>
+					<!--板块1 End-->
+
+					<!--板块2 Start-->
+					<div class="card">
+						<div class="card-body">
+							<h4 class="card-title m-b-0">Users</h4>
+							<h2 class="font-light">35,658 <span class="font-16 text-success font-medium">+23%</span></h2>
+							<div class="m-t-30">
+								<div class="row text-center">
+									<div class="col-6 border-right">
+										<h4 class="m-b-0">58%</h4>
+										<span class="font-14 text-muted">New Users</span>
+									</div>
+									<div class="col-6">
+										<h4 class="m-b-0">42%</h4>
+										<span class="font-14 text-muted">Repeat Users</span>
+									</div>
 								</div>
 							</div>
-					    </div>
+						</div>
 					</div>
-					<!--end-->
-		        </main>
-		      </div>
-		</div>
-		<aside class="team-left-column col-12 col-md-3 col-lg-3 pr-3 mt-5 hide-lg hide-md hide-sm border-bottom" aria-label="Explore">
-			<div class="main-info-grid1">
-				<h5>成员信息或空白</h5>
-				<div class="navigation-bottom-menu-bottom scrollbar" id="style-2">
-					<div class="nav-btm-menu-btm-grid">
-						<div class="nav-btm-menu-btm-grid-left">
-							<img src="../assets/images/2.jpg" alt=" " class="img-responsive" />
+					<!--板块2 End-->
+				</div>
+				<div class="col-md-4">
+					<!--事件时间表 Start-->
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Today's Schedule</h5>
+							<h6 class="card-subtitle">check out your daily schedule</h6>
+							<div class="steamline m-t-40">
+								<div class="sl-item">
+									<div class="sl-left bg-success"> <i class="fa fa-user"></i></div>
+									<div class="sl-right">
+										<div class="font-medium">Meeting today <span class="sl-date"> 5pm</span></div>
+										<div class="desc">you can write anything </div>
+									</div>
+								</div>
+								<div class="sl-item">
+									<div class="sl-left bg-info"><i class="fa fa-image"></i></div>
+									<div class="sl-right">
+										<div class="font-medium">Send documents to Clark</div>
+										<div class="desc">Lorem Ipsum is simply </div>
+									</div>
+								</div>
+								<div class="sl-item">
+									<div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/1.jpg"> </div>
+									<div class="sl-right">
+										<div class="font-medium">John Doe <span class="sl-date"> 5pm</span></div>
+										<div class="desc">Call today with gohn doe </div>
+									</div>
+								</div>
+								<div class="sl-item">
+									<div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/2.jpg"> </div>
+									<div class="sl-right">
+										<div class="font-medium">Go to the Doctor <span class="sl-date">5 minutes ago</span></div>
+										<div class="desc">Contrary to popular belief</div>
+									</div>
+								</div>
+								<div class="sl-item">
+									<div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/3.jpg"> </div>
+									<div class="sl-right">
+										<div><a href="#">Tiger Sroff</a> <span class="sl-date">5 minutes ago</span></div>
+										<div class="desc">Approve meeting with tiger
+											<br><a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Apporve</a> <a
+													href="javascript:void(0)" class="btn m-t-10 btn-rounded btn-outline-danger">Refuse</a> </div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="nav-btm-menu-btm-grid-left1">
-							<h3>wenhuang</h3>
-							<p><a href="index.html#">奥利给</a></p>
-						</div>
-						<div class="nav-btm-menu-btm-grid-right">
-							<h4></h4>
-						</div>
-						<div class="clear"> </div>
 					</div>
-					<div class="nav-btm-menu-btm-grid">
-						<div class="nav-btm-menu-btm-grid-left">
-							<img src="../assets/images/2.jpg" alt=" " class="img-responsive" />
+					<!--事件时间表 End-->
+
+					<!--留言区 Start-->
+					<div class="card">
+						<div class="card-body">
+							<h4 class="card-title">Recent Comments</h4>
 						</div>
-						<div class="nav-btm-menu-btm-grid-left1">
-							<h3>BWH</h3>
-							<p><a href="index.html#">奥利给</a></p>
+						<div class="comment-widgets" style="height:430px;">
+							<!-- Comment Row -->
+							<div class="d-flex flex-row comment-row m-t-0">
+								<div class="p-2">
+									<img src="../assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle">
+								</div>
+								<div class="comment-text w-100">
+									<h6 class="font-medium">James Anderson</h6>
+									<span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.
+											</span>
+									<div class="comment-footer">
+										<span class="text-muted float-right">April 14, 2016</span>
+										<span class="label label-rounded label-primary">Pending</span>
+										<span class="action-icons">
+													<a href="javascript:void(0)">
+														<i class="ti-pencil-alt"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="ti-check"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="ti-heart"></i>
+													</a>
+												</span>
+									</div>
+								</div>
+							</div>
+							<!-- Comment Row -->
+							<div class="d-flex flex-row comment-row">
+								<div class="p-2">
+									<img src="../assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle">
+								</div>
+								<div class="comment-text active w-100">
+									<h6 class="font-medium">Michael Jorden</h6>
+									<span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.
+											</span>
+									<div class="comment-footer ">
+										<span class="text-muted float-right">April 14, 2016</span>
+										<span class="label label-success label-rounded">Approved</span>
+										<span class="action-icons active">
+													<a href="javascript:void(0)">
+														<i class="ti-pencil-alt"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="icon-close"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="ti-heart text-danger"></i>
+													</a>
+												</span>
+									</div>
+								</div>
+							</div>
+							<!-- Comment Row -->
+							<div class="d-flex flex-row comment-row">
+								<div class="p-2">
+									<img src="../assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle">
+								</div>
+								<div class="comment-text w-100">
+									<h6 class="font-medium">Johnathan Doeting</h6>
+									<span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.
+											</span>
+									<div class="comment-footer">
+										<span class="text-muted float-right">April 14, 2016</span>
+										<span class="label label-rounded label-danger">Rejected</span>
+										<span class="action-icons">
+													<a href="javascript:void(0)">
+														<i class="ti-pencil-alt"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="ti-check"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="ti-heart"></i>
+													</a>
+												</span>
+									</div>
+								</div>
+							</div>
+							<!-- Comment Row -->
+							<div class="d-flex flex-row comment-row m-t-0">
+								<div class="p-2">
+									<img src="../assets/images/users/2.jpg" alt="user" width="50" class="rounded-circle">
+								</div>
+								<div class="comment-text w-100">
+									<h6 class="font-medium">Steve Jobs</h6>
+									<span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.
+											</span>
+									<div class="comment-footer">
+										<span class="text-muted float-right">April 14, 2016</span>
+										<span class="label label-rounded label-primary">Pending</span>
+										<span class="action-icons">
+													<a href="javascript:void(0)">
+														<i class="ti-pencil-alt"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="ti-check"></i>
+													</a>
+													<a href="javascript:void(0)">
+														<i class="ti-heart"></i>
+													</a>
+												</span>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="nav-btm-menu-btm-grid-right">
-							<h4></h4>
-						</div>
-						<div class="clear"> </div>
 					</div>
-					<div class="nav-btm-menu-btm-grid">
-						<div class="nav-btm-menu-btm-grid-left">
-							<img src="../assets/images/2.jpg" alt=" " class="img-responsive" />
-						</div>
-						<div class="nav-btm-menu-btm-grid-left1">
-							<h3>BWH</h3>
-							<p><a href="index.html#">奥利给</a></p>
-						</div>
-						<div class="nav-btm-menu-btm-grid-right">
-							<h4></h4>
-						</div>
-						<div class="clear"> </div>
-					</div>
-					<div class="nav-btm-menu-btm-grid">
-						<div class="nav-btm-menu-btm-grid-left">
-							<img src="../assets/images/2.jpg" alt=" " class="img-responsive" />
-						</div>
-						<div class="nav-btm-menu-btm-grid-left1">
-							<h3>BWH</h3>
-							<p><a href="index.html#">奥利给</a></p>
-						</div>
-						<div class="nav-btm-menu-btm-grid-right">
-							<h4></h4>
-						</div>
-						<div class="clear"> </div>
-					</div>
-					<div class="nav-btm-menu-btm-grid">
-						<div class="nav-btm-menu-btm-grid-left">
-							<img src="../assets/images/2.jpg" alt=" " class="img-responsive" />
-						</div>
-						<div class="nav-btm-menu-btm-grid-left1">
-							<h3>BWH</h3>
-							<p><a href="index.html#">奥利给</a></p>
-						</div>
-						<div class="nav-btm-menu-btm-grid-right">
-							<h4></h4>
-						</div>
-						<div class="clear"> </div>
-					</div>
-					<div class="nav-btm-menu-btm-grid">
-						<div class="nav-btm-menu-btm-grid-left">
-							<img src="../assets/images/1.jpg" alt=" " class="img-responsive" />
-						</div>
-						<div class="nav-btm-menu-btm-grid-left1">
-							<h3>ShuHao</h3>
-							<p><a href="index.html#">我是小萌新</a></p>
-						</div>
-						<div class="nav-btm-menu-btm-grid-right">
-							<h4></h4>
-						</div>
-						<div class="clear"> </div>
-					</div>
+					<!--留言区 End-->
 				</div>
 			</div>
-		</aside>
-		
-		<!--<script src="../assets/libs/jquery/dist/jquery.min.js"></script>-->
-		<!--&lt;!&ndash; Bootstrap tether Core JavaScript &ndash;&gt;-->
-		<!--<script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>-->
-		<!--<script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>-->
-		<!--&lt;!&ndash; slimscrollbar scrollbar JavaScript &ndash;&gt;-->
-		<!--<script src="../assets/extra-libs/sparkline/sparkline.js"></script>-->
-		<!--&lt;!&ndash;Wave Effects &ndash;&gt;-->
-		<!--<script src="../dist/js/waves.js"></script>-->
-		<!--&lt;!&ndash;Menu sidebar &ndash;&gt;-->
-		<!--<script src="../dist/js/sidebarmenu.js"></script>-->
-		<!--&lt;!&ndash;Custom JavaScript &ndash;&gt;-->
-		<!--<script src="../dist/js/custom.min.js"></script>-->
-		<!--&lt;!&ndash;This page JavaScript &ndash;&gt;-->
-		<!--&lt;!&ndash;chartis chart&ndash;&gt;-->
-		<!--<script src="../assets/libs/chartist/dist/chartist.min.js"></script>-->
-		<!--<script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>-->
-		<!--<script src="../dist/js/pages/dashboards/dashboard1.js"></script>-->
-		
-		
-		
-	</body>
+			<div class="row">
+				<!-- column -->
+				<div class="col-12">
+					<!--中间部分中部区域-->
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- column -->
+				<div class="col-lg-6">
+					<!--中间部分最左下角区域-->
+
+				</div>
+
+				<!-- column -->
+				<div class="col-md-6">
+					<!--中间部分最右下角区域-->
+				</div>
+
+			</div>
+		</div>
+		<!--end-->
+
+
+	</div>
+</div>
+</div>
+</div>
+
+<!--核心js-->
+<script src="../js/jQuery.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/jquery.flexslider.js"></script>
+
+<!--Wave Effects -->
+<script src="../js/waves.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="../js/jquery.slimscroll.js"></script>
+<!--Menu sidebar -->
+<script src="../js/sidebarmenu.js"></script>
+
+
+</body>
 </html>
